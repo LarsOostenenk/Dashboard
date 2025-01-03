@@ -1,21 +1,22 @@
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
-WORKDIR /app
-EXPOSE 8080
-
+# Gebruik een officiële .NET SDK image om te bouwen
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
+
+# Kopieer alle bestanden naar de container
 COPY . .
-RUN dotnet restore "ProductManagementAPI/ProductManagementAPI.csproj"
-RUN dotnet publish "ProductManagementAPI/ProductManagementAPI.csproj" -c Release -o /app/publish
 
-FROM node:16 AS frontend
-WORKDIR /frontend
-COPY Frontend/ .
-RUN npm install
-RUN npm run build
+# Herstel afhankelijkheden
+RUN dotnet restore "ProductManagementAPI.csproj"
 
-FROM base AS final
+# Bouw de applicatie
+RUN dotnet publish "ProductManagementAPI.csproj" -c Release -o /app/publish
+
+# Gebruik een kleinere runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
+
+# Kopieer de gepubliceerde output naar de runtime image
 COPY --from=build /app/publish .
-COPY --from=frontend /frontend/build ./wwwroot
+
+# Stel de startopdracht in
 ENTRYPOINT ["dotnet", "ProductManagementAPI.dll"]
