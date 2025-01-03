@@ -130,4 +130,4 @@ C:\Repo's\ProductManagementAPI\obj\Debug\net9.0\ProductManagementAPI.xml
 C:\Repo's\ProductManagementAPI\obj\Debug\net9.0\ProductManagementAPI.pdb
 C:\Repo's\ProductManagementAPI\obj\Debug\net9.0\ProductManagementAPI.genruntimeconfig.cache
 C:\Repo's\ProductManagementAPI\obj\Debug\net9.0\ref\ProductManagementAPI.dll
-C:\Repo's\ProductManagementAPI\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Repo's\ProductManagementAPI\obj\Debug\net9.0\ProductManagementAPI.sourcelink.json
