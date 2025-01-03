@@ -1,0 +1,13 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: vercel-deployment-task@1
+    inputs:
+      vercelProjectId: 'prj_pdpMWhMrybL3QBRtBeg4xBTkyYku'
+      vercelOrgId: 'team_1tayMFW4YMv3QNcwYWd8zdbX'
+      vercelToken: 'qL0bZEnQUGjOHOnb2dLpSNQ6'
+      production: true

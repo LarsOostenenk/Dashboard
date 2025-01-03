@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProductManagementAPI</name>
+    </assembly>
+    <members>
+        <member name="T:ProductManagementAPI.Controllers.ProductsController">
+            <summary>
+            Controller to manage products.
+            </summary>
+        </member>
+        <member name="M:ProductManagementAPI.Controllers.ProductsController.#ctor(ProductManagementAPI.Data.AppDbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ProductManagementAPI.Controllers.ProductsController"/> class.
+            </summary>
+            <param name="context">The database context.</param>
+        </member>
+        <member name="M:ProductManagementAPI.Controllers.ProductsController.GetProducts">
+            <summary>
+            Retrieves all products.
+            </summary>
+            <returns>A list of products.</returns>
+            <response code="200">Returns the list of products.</response>
+        </member>
+        <member name="M:ProductManagementAPI.Controllers.ProductsController.CreateProduct(ProductManagementAPI.Models.Product)">
+            <summary>
+            Creates a new product.
+            </summary>
+            <param name="product">The product to create.</param>
+            <returns>The created product.</returns>
+            <response code="201">Returns the newly created product.</response>
+            <response code="400">If the product is null or invalid.</response>
+        </member>
+        <member name="T:ProductManagementAPI.Models.Product">
+            <summary>
+            Represents a product in the inventory.
+            </summary>
+        </member>
+        <member name="P:ProductManagementAPI.Models.Product.id">
+            <summary>
+            Gets or sets the unique identifier for the product.
+            </summary>
+        </member>
+        <member name="P:ProductManagementAPI.Models.Product.name">
+            <summary>
+            Gets or sets the name of the product.
+            </summary>
+        </member>
+        <member name="P:ProductManagementAPI.Models.Product.description">
+            <summary>
+            Gets or sets the description of the product.
+            </summary>
+        </member>
+        <member name="P:ProductManagementAPI.Models.Product.price">
+            <summary>
+            Gets or sets the price of the product.
+            </summary>
+        </member>
+        <member name="P:ProductManagementAPI.Models.Product.createdat">
+            <summary>
+            Gets or sets the creation date of the product.
+            </summary>
+        </member>
+    </members>
+</doc>

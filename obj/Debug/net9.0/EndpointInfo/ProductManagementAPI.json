@@ -1,0 +1,107 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Lars Oostenenk API (TestFase)",
+    "description": "A basic API to manage products.",
+    "contact": {
+      "name": "Lars Oostenenk",
+      "url": "https://larsoostenenk.nl",
+      "email": "Le.oostenenk@gmail.com"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Products": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Retrieves all products.",
+        "responses": {
+          "200": {
+            "description": "Returns the list of products."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Creates a new product.",
+        "requestBody": {
+          "description": "The product to create.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              },
+              "example": {
+                "name": "Example Product",
+                "description": "This is an example description.",
+                "price": 29,99,
+                "createdAt": "2025-01-01T00:00:00Z"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Returns the newly created product."
+          },
+          "400": {
+            "description": "If the product is null or invalid."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Gets or sets the unique identifier for the product.",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "description": "Gets or sets the name of the product.",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Gets or sets the description of the product.",
+            "nullable": true
+          },
+          "price": {
+            "type": "number",
+            "description": "Gets or sets the price of the product.",
+            "format": "double"
+          },
+          "createdat": {
+            "type": "string",
+            "description": "Gets or sets the creation date of the product.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a product in the inventory."
+      }
+    }
+  }
+}
