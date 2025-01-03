@@ -56,12 +56,10 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-// Enable Swagger only in Development
-if (app.Environment.IsDevelopment())
-{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+
+app.MapGet("/", () => "Welcome to the Lars Oostenenk API! Check /swagger for API documentation.");
 
 // Use CORS
 app.UseCors("AllowAll");
