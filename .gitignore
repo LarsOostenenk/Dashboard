@@ -27,7 +27,6 @@ yarn-error.log*
 bin/
 obj/
 node_modules/
-Frontend/node_modules
 bin/bash
 /bin/bash
 
