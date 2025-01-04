@@ -56,8 +56,18 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-    app.UseSwagger();
-    app.UseSwaggerUI();
+// Enable Swagger at /api
+app.UseSwagger(c =>
+{
+    c.RouteTemplate = "api/{documentName}/swagger.json"; // Swagger JSON will be at /api/v1/swagger.json
+});
+
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/api/v1/swagger.json", "Lars Oostenenk API v1"); // Swagger UI will use this endpoint
+    c.RoutePrefix = "api"; // Makes Swagger UI available at /api
+});
+
 
 app.MapGet("/", () => "Welcome to the Lars Oostenenk API! Check /swagger for API documentation.");
 
